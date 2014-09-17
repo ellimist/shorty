@@ -15,7 +15,16 @@ The challenge, if you chose to accept it, is to create a micro service to shorte
 4. The service must be versioned using git and submitted by making a Pull Request against this repository, git history **should** be meaningful.
 5. You don't have to use a datastore, you can have all data in memory, but we'd be more impressed if you do use one.
 
+## Tips
+
+* Less is more, small is beautiful, you know the drill — stick to the requirements.
+* Don't try to make the microservice play well with others, the system is all yours.
+* No need to take care of domains, that's for a reverse proxy to handle.
+* Unit tests > Integration tests, but be careful with untested parts of the system.
+
 **Good Luck!** — not that you need any ;)
+
+-------------------------------------------------------------------------
 
 ## API Documentation
 
@@ -115,7 +124,7 @@ Attribute         | Description
 --------------    | -----------
 **startDate**     | date when the url was encoded, conformant to [ISO8601](http://en.wikipedia.org/wiki/ISO_8601)
 **redirectCount** | number of times the endpoint ```GET /shortcode``` was called
-lastSeenDate      | date of the last time the a redirect was issued, not present if ```redirectCount == 0``
+lastSeenDate      | date of the last time the a redirect was issued, not present if ```redirectCount == 0```
 
 ##### Errors
 
