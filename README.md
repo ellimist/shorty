@@ -5,7 +5,7 @@ The trendy modern question for developer inteviews seems to be, "how to create a
 
 ## The Challenge
 
-The challenge, if you chose to accept it, is to create a micro service to shorten urls, in the style that TinyURL and bit.ly made popular.
+The challenge, if you choose to accept it, is to create a micro service to shorten urls, in the style that TinyURL and bit.ly made popular.
 
 ## Rules
 
@@ -67,7 +67,7 @@ Error | Description
 ----- | ------------
 400   | ```url``` is not present
 409   | The the desired shortcode is already in use. **Shortcodes are case-sensitive**.
-422   | The shortcode fails to meet the regex following regexp: ```^[0-9a-zA-Z_]{4,}$```.
+422   | The shortcode fails to meet the following regexp: ```^[0-9a-zA-Z_]{4,}$```.
 
 
 ### GET /:shortcode
