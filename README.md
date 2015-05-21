@@ -116,7 +116,7 @@ Content-Type: "application/json"
 {
   "startDate": "2012-04-23T18:25:43.511Z",
   "lastSeenDate": "2012-04-23T18:25:43.511Z",
-  "redirectCount": 0
+  "redirectCount": 1
 }
 ```
 
