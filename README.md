@@ -18,6 +18,7 @@ The challenge, if you choose to accept it, is to create a micro service to short
 ## Tips
 
 * Less is more, small is beautiful, you know the drill — stick to the requirements.
+* Use the right tool for the job, rails is highly discouraged.
 * Don't try to make the microservice play well with others, the system is all yours.
 * No need to take care of domains, that's for a reverse proxy to handle.
 * Unit tests > Integration tests, but be careful with untested parts of the system.
@@ -99,7 +100,7 @@ Error | Description
 ### GET /:shortcode/stats
 
 ```
-GET /:code
+GET /:shortcode/stats
 Content-Type: "application/json"
 ```
 
