@@ -35,7 +35,7 @@ func Test(t *testing.T) {
 					End()
 				Expect(resp.StatusCode).To(Equal(http.StatusBadRequest))
 				Expect(body).To(Equal(`{"message":"Bad Request"}`))
-        done()
+				done()
 			})
 			g.It("should fail to create a shortcode without POSTing a URL param", func(done Done) {
 				request := gorequest.New()
@@ -46,7 +46,7 @@ func Test(t *testing.T) {
 					End()
 				Expect(resp.StatusCode).To(Equal(http.StatusBadRequest))
 				Expect(body).To(Equal(`{"message":"url is not present"}`))
-        done()
+				done()
 			})
 			g.It("should fail to create a shortcode if the desired one does not respect the format", func(done Done) {
 				request := gorequest.New()
@@ -57,7 +57,7 @@ func Test(t *testing.T) {
 					End()
 				Expect(resp.StatusCode).To(Equal(422))
 				Expect(body).To(Equal(`{"message":"The shortcode fails to meet the following regexp: ^[0-9a-zA-Z_]{4,}$"}`))
-        done()
+				done()
 			})
 			g.It("should create a new shortened URL", func(done Done) {
 				request := gorequest.New()
@@ -70,7 +70,7 @@ func Test(t *testing.T) {
 				Expect(resp.StatusCode).To(Equal(http.StatusCreated))
 				Expect(result.ShortCode).To(Not(BeNil()))
 				Expect(len(*result.ShortCode)).To(Equal(6))
-        done()
+				done()
 			})
 			g.It("should create a new shortened URL with the prefered shortcode", func(done Done) {
 				request := gorequest.New()
@@ -86,7 +86,7 @@ func Test(t *testing.T) {
 				Expect(result.ShortCode).To(Not(BeNil()))
 				Expect(len(*result.ShortCode)).To(Equal(6))
 				Expect(*result.ShortCode).To(Equal(shortcode))
-        done()
+				done()
 			})
 			g.It("should fail to register the same shortcode twice", func(done Done) {
 				request := gorequest.New()
@@ -112,7 +112,7 @@ func Test(t *testing.T) {
 					End()
 				Expect(resp.StatusCode).To(Equal(http.StatusConflict))
 				Expect(body).To(Equal(`{"message":"The the desired shortcode is already in use"}`))
-        done()
+				done()
 			})
 		})
 		g.Describe("GET /:shortcode", func() {
@@ -123,7 +123,7 @@ func Test(t *testing.T) {
 					Set("Content-Type", "application/json").
 					End()
 				Expect(resp.StatusCode).To(Equal(http.StatusNotFound))
-        done()
+				done()
 			})
 			g.It("should redirect sucessfully to an url", func(done Done) {
 				// Register a new shortcode
@@ -148,7 +148,7 @@ func Test(t *testing.T) {
 
 				// // TODO: resp.StatusCode should be http.StatusFound
 				Expect(resp.StatusCode).To(Equal(http.StatusOK))
-        done()
+				done()
 			})
 		})
 		g.Describe("GET /:shortcode/stats", func() {
@@ -160,7 +160,7 @@ func Test(t *testing.T) {
 					Set("Content-Type", "application/json").
 					End()
 				Expect(resp.StatusCode).To(Equal(http.StatusNotFound))
-        done()
+				done()
 			})
 			g.It("should get the stats of a shortcode who's never been visited", func(done Done) {
 				request := gorequest.New()
@@ -181,7 +181,7 @@ func Test(t *testing.T) {
 				Expect(resp.StatusCode).To(Equal(http.StatusOK))
 				Expect(*result.RedirectCount).To(BeZero())
 				Expect(result.LastSeenDate).To(BeNil())
-        done()
+				done()
 			})
 			g.It("should get the stats of a shortcode who's been visited", func(done Done) {
 				request := gorequest.New()
@@ -217,7 +217,7 @@ func Test(t *testing.T) {
 				Expect(resp.StatusCode).To(Equal(http.StatusOK))
 				Expect(*result.RedirectCount).To(Equal(expectedVisitedCount))
 				Expect(result.LastSeenDate).To(Not(BeNil()))
-        done()
+				done()
 			})
 		})
 	})
