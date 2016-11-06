@@ -7,13 +7,6 @@ ENV MYSQL_USER root
 ENV MYSQL_PASSWORD root
 ENV MYSQL_DATABASE shorty
 
-# Install dependecies
-# Should probably be vendored
-RUN apk add --update git bash coreutils
-RUN go get -u github.com/labstack/echo
-RUN go get -u github.com/go-sql-driver/mysql
-RUN go get -u github.com/franela/goblin
-
 COPY ./ $GOPATH/src/impraise.com/shorty
 RUN go install impraise.com/shorty
 WORKDIR $GOPATH/src/impraise.com/shorty
