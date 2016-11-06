@@ -1,0 +1,21 @@
+version: '2'
+services:
+  mysql:
+    image: mysql:5.7.10
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=shorty
+    ports:
+      - 3306:3306
+    volumes:
+      - ./schema:/docker-entrypoint-initdb.d
+
+  shorty:
+    build: .
+    command: shorty
+    ports:
+      - 8080:8080
+    volumes:
+      - ../shorty:/go/src/impraise.com/shorty
+    links:
+      - mysql
